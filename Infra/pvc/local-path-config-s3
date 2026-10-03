@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: local-path-config-s3
+  namespace: local-path-storage
+data:
+  config.json: |-
+    {
+      "nodePathMap": [
+        {
+          "node": "node3",
+          "paths": ["/data/s3-local-path"]
+        }
+      ]
+    }
+  helperPod.yaml: |-
+    ...（同上）
+  setup: |-
+    ...（同上）
+  teardown: |-
+    ...（同上）
