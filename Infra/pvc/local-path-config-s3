@@ -14,8 +14,23 @@ data:
       ]
     }
   helperPod.yaml: |-
-    ...（同上）
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: helper-pod
+    spec:
+      priorityClassName: system-node-critical
+      tolerations:
+        - operator: Exists
+      containers:
+        - name: helper-pod
+          image: busybox:1.36
+          imagePullPolicy: IfNotPresent
   setup: |-
-    ...（同上）
+    #!/bin/sh
+    set -eu
+    mkdir -m 0777 -p "$VOL_DIR"
   teardown: |-
-    ...（同上）
+    #!/bin/sh
+    set -eu
+    rm -rf "$VOL_DIR"
