@@ -1,0 +1,21 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-path-postgres
+provisioner: rancher.io/local-path
+parameters:
+  configMapName: local-path-config-postgres
+  configMapNamespace: local-path-storage
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-path-s3
+provisioner: rancher.io/local-path
+parameters:
+  configMapName: local-path-config-s3
+  configMapNamespace: local-path-storage
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
