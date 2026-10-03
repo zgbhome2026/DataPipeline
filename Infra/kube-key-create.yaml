@@ -1,0 +1,31 @@
+apiVersion: kubekey.kubesphere.io/v1alpha2
+kind: Cluster
+metadata:
+  name: zgb-kube
+spec:
+  hosts:
+  - {name: master01, address: 192.168.8.2, internalAddress: 192.168.8.2, user: zgb, password: "zgbzgbzgb"}
+  - {name: worker01, address: 192.168.8.21, internalAddress: 192.168.8.21, user: zgb, password: "zgbzgbzgb"}
+  - {name: worker02, address: 192.168.8.22, internalAddress: 192.168.8.22, user: zgb, password: "zgbzgbzgb"}
+  - {name: worker03, address: 192.168.8.23, internalAddress: 192.168.8.23, user: zgb, password: "zgbzgbzgb"}
+  roleGroups:
+    etcd:
+    - master01
+    master:
+    - master01
+    worker:
+    - worker01
+    - worker02
+    - worker03
+  controlPlaneEndpoint:
+    domain: lb.kubesphere.local
+    address: ""
+    port: 6443
+  kubernetes:
+    version: v1.32.5
+    clusterName: cluster.local
+    containerManager: containerd   # 完美适配 Ubuntu 24.04 内核与 Cgroup v2
+  network:
+    plugin: calico               # 网络插件选择 Calico
+    kubePodsCIDR: 10.10.0.0/16
+    kubeServiceCIDR: 10.100.0.0/16
