@@ -32,4 +32,7 @@ spec:
 
   # 使用3.1.11安装
   #　wget https://github.com/kubesphere/kubekey/releases/download/v3.1.11/kubekey-v3.1.11-linux-amd64.tar.gz
+  # wget https://github.com/derailed/k9s/releases/latest/download/k9s_linux_amd64.deb
+  # apt install ./k9s_linux_amd64.deb
+  # 
 
