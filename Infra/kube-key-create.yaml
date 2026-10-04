@@ -29,3 +29,7 @@ spec:
     plugin: calico               # 网络插件选择 Calico
     kubePodsCIDR: 10.10.0.0/16
     kubeServiceCIDR: 10.100.0.0/16
+
+  # 使用3.1.11安装
+  #　wget https://github.com/kubesphere/kubekey/releases/download/v3.1.11/kubekey-v3.1.11-linux-amd64.tar.gz
+
